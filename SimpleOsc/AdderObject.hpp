@@ -10,5 +10,15 @@
 #define AdderObject_hpp
 
 #include <stdio.h>
+#include "MathObject.h"
+
+class AdderObject : public MathObject
+{
+public:
+    AdderObject();
+    AdderObject(float * leftInput, float * rightInput);
+    ~AdderObject();
+    void tick(float * fillBuffer, int numSamples);
+};
 
 #endif /* AdderObject_hpp */

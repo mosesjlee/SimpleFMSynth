@@ -9,6 +9,15 @@
 #ifndef MultiplierObject_hpp
 #define MultiplierObject_hpp
 
-#include <stdio.h>
+#include "MathObject.h"
+
+class MultiplierObject : public MathObject
+{
+public:
+    MultiplierObject();
+    MultiplierObject(float * leftInput, float * rightInput);
+    ~MultiplierObject();
+    void tick(float * fillBuffer, int numSamples);
+};
 
 #endif /* MultiplierObject_hpp */

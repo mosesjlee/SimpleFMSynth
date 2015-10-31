@@ -17,7 +17,7 @@
 
 @implementation SineWrapper
 
-- (instancetype) init
+- (id) init
 {
     self = [super init];
     if (self != nil)

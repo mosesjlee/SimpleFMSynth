@@ -12,7 +12,7 @@
 
 @interface SineWrapper : NSObject
 
-- (instancetype) init;
+- (id) init;
 - (float) tick;
 - (void) setFreq:(float) newFreq;
 - (void) dealloc;

@@ -8,7 +8,6 @@
 
 #ifndef SineWaveOsc_h
 #define SineWaveOsc_h
-#define MAX_SAMPLES 4096
 #include <math.h>
 #include "AudioSpec.h"
 
@@ -22,6 +21,7 @@ public:
     
 private:
     float * table;
+    float * outBuffer;
     float initialPhase;
     float delta_i;
     float index;

@@ -9,5 +9,6 @@
 #ifndef AudioSpec_h
 #define AudioSpec_h
 #define SR 44100
+#define MAX_SAMPLES 1024
 
 #endif /* AudioSpec_h */

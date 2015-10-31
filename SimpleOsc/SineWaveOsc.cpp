@@ -11,6 +11,7 @@
 SineWaveOsc::SineWaveOsc()
 {
     table = new float[MAX_SAMPLES];
+    outBuffer = new float[MAX_SAMPLES];
     index = 0.0;
     freq = 440.0;
     setFreq(freq);
@@ -18,6 +19,7 @@ SineWaveOsc::SineWaveOsc()
     for(int i = 0; i < MAX_SAMPLES;i++)
     {
         table[i] = sin(2 * M_PI * (float) i/MAX_SAMPLES);
+        outBuffer[i] = 0.0;
     }
 }
 

@@ -7,25 +7,54 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		914D9AF41BE52A5900E19AC1 /* AdderObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 914D9AF21BE52A5900E19AC1 /* AdderObject.cpp */; };
+		914D9AF71BE52E8900E19AC1 /* MultiplierObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 914D9AF51BE52E8900E19AC1 /* MultiplierObject.cpp */; };
+		914D9AFA1BE532A100E19AC1 /* FMSynthesis.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 914D9AF81BE532A100E19AC1 /* FMSynthesis.cpp */; };
 		91DDDDD11BE4B40B00D7D932 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DDDDD01BE4B40B00D7D932 /* main.m */; };
-		91DDDDD41BE4B40B00D7D932 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DDDDD31BE4B40B00D7D932 /* AppDelegate.m */; };
-		91DDDDD71BE4B40B00D7D932 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DDDDD61BE4B40B00D7D932 /* ViewController.m */; };
+		91DDDDD41BE4B40B00D7D932 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 91DDDDD31BE4B40B00D7D932 /* AppDelegate.mm */; };
+		91DDDDD71BE4B40B00D7D932 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 91DDDDD61BE4B40B00D7D932 /* ViewController.mm */; };
 		91DDDDDA1BE4B40B00D7D932 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91DDDDD81BE4B40B00D7D932 /* Main.storyboard */; };
 		91DDDDDC1BE4B40B00D7D932 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91DDDDDB1BE4B40B00D7D932 /* Assets.xcassets */; };
 		91DDDDDF1BE4B40B00D7D932 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91DDDDDD1BE4B40B00D7D932 /* LaunchScreen.storyboard */; };
+		91DDDDED1BE4B65900D7D932 /* SineWaveOsc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91DDDDE91BE4B65900D7D932 /* SineWaveOsc.cpp */; };
+		91DDDDEE1BE4B65900D7D932 /* SineWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 91DDDDEC1BE4B65900D7D932 /* SineWrapper.mm */; };
+		91DDDDF91BE4BA2600D7D932 /* AudioFileReader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 91DDDDF21BE4BA2600D7D932 /* AudioFileReader.mm */; };
+		91DDDDFA1BE4BA2600D7D932 /* AudioFileWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DDDDF41BE4BA2600D7D932 /* AudioFileWriter.m */; };
+		91DDDDFB1BE4BA2600D7D932 /* Novocaine.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DDDDF61BE4BA2600D7D932 /* Novocaine.m */; };
+		91DDDDFC1BE4BA2600D7D932 /* RingBuffer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 91DDDDF81BE4BA2600D7D932 /* RingBuffer.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		914D9AF11BE527C700E19AC1 /* MathObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MathObject.h; sourceTree = "<group>"; };
+		914D9AF21BE52A5900E19AC1 /* AdderObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AdderObject.cpp; sourceTree = "<group>"; };
+		914D9AF31BE52A5900E19AC1 /* AdderObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AdderObject.hpp; sourceTree = "<group>"; };
+		914D9AF51BE52E8900E19AC1 /* MultiplierObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MultiplierObject.cpp; sourceTree = "<group>"; };
+		914D9AF61BE52E8900E19AC1 /* MultiplierObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MultiplierObject.hpp; sourceTree = "<group>"; };
+		914D9AF81BE532A100E19AC1 /* FMSynthesis.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FMSynthesis.cpp; sourceTree = "<group>"; };
+		914D9AF91BE532A100E19AC1 /* FMSynthesis.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FMSynthesis.hpp; sourceTree = "<group>"; };
 		91DDDDCC1BE4B40B00D7D932 /* SimpleOsc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleOsc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91DDDDD01BE4B40B00D7D932 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		91DDDDD21BE4B40B00D7D932 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		91DDDDD31BE4B40B00D7D932 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		91DDDDD31BE4B40B00D7D932 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		91DDDDD51BE4B40B00D7D932 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		91DDDDD61BE4B40B00D7D932 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		91DDDDD61BE4B40B00D7D932 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		91DDDDD91BE4B40B00D7D932 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		91DDDDDB1BE4B40B00D7D932 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91DDDDDE1BE4B40B00D7D932 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		91DDDDE01BE4B40B00D7D932 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		91DDDDE81BE4B65900D7D932 /* AudioSpec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioSpec.h; sourceTree = "<group>"; };
+		91DDDDE91BE4B65900D7D932 /* SineWaveOsc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SineWaveOsc.cpp; sourceTree = "<group>"; };
+		91DDDDEA1BE4B65900D7D932 /* SineWaveOsc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SineWaveOsc.h; sourceTree = "<group>"; };
+		91DDDDEB1BE4B65900D7D932 /* SineWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SineWrapper.h; sourceTree = "<group>"; };
+		91DDDDEC1BE4B65900D7D932 /* SineWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SineWrapper.mm; sourceTree = "<group>"; };
+		91DDDDF11BE4BA2600D7D932 /* AudioFileReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioFileReader.h; path = Novocaine/AudioFileReader.h; sourceTree = "<group>"; };
+		91DDDDF21BE4BA2600D7D932 /* AudioFileReader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AudioFileReader.mm; path = Novocaine/AudioFileReader.mm; sourceTree = "<group>"; };
+		91DDDDF31BE4BA2600D7D932 /* AudioFileWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioFileWriter.h; path = Novocaine/AudioFileWriter.h; sourceTree = "<group>"; };
+		91DDDDF41BE4BA2600D7D932 /* AudioFileWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioFileWriter.m; path = Novocaine/AudioFileWriter.m; sourceTree = "<group>"; };
+		91DDDDF51BE4BA2600D7D932 /* Novocaine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Novocaine.h; path = Novocaine/Novocaine.h; sourceTree = "<group>"; };
+		91DDDDF61BE4BA2600D7D932 /* Novocaine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Novocaine.m; path = Novocaine/Novocaine.m; sourceTree = "<group>"; };
+		91DDDDF71BE4BA2600D7D932 /* RingBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RingBuffer.h; path = Novocaine/RingBuffer.h; sourceTree = "<group>"; };
+		91DDDDF81BE4BA2600D7D932 /* RingBuffer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RingBuffer.mm; path = Novocaine/RingBuffer.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +87,30 @@
 		91DDDDCE1BE4B40B00D7D932 /* SimpleOsc */ = {
 			isa = PBXGroup;
 			children = (
+				91DDDDF11BE4BA2600D7D932 /* AudioFileReader.h */,
+				91DDDDF21BE4BA2600D7D932 /* AudioFileReader.mm */,
+				91DDDDF31BE4BA2600D7D932 /* AudioFileWriter.h */,
+				91DDDDF41BE4BA2600D7D932 /* AudioFileWriter.m */,
+				91DDDDF51BE4BA2600D7D932 /* Novocaine.h */,
+				91DDDDF61BE4BA2600D7D932 /* Novocaine.m */,
+				91DDDDF71BE4BA2600D7D932 /* RingBuffer.h */,
+				91DDDDF81BE4BA2600D7D932 /* RingBuffer.mm */,
+				91DDDDE81BE4B65900D7D932 /* AudioSpec.h */,
+				914D9AF11BE527C700E19AC1 /* MathObject.h */,
+				914D9AF31BE52A5900E19AC1 /* AdderObject.hpp */,
+				914D9AF21BE52A5900E19AC1 /* AdderObject.cpp */,
+				914D9AF61BE52E8900E19AC1 /* MultiplierObject.hpp */,
+				914D9AF51BE52E8900E19AC1 /* MultiplierObject.cpp */,
+				91DDDDEA1BE4B65900D7D932 /* SineWaveOsc.h */,
+				91DDDDE91BE4B65900D7D932 /* SineWaveOsc.cpp */,
+				914D9AF91BE532A100E19AC1 /* FMSynthesis.hpp */,
+				914D9AF81BE532A100E19AC1 /* FMSynthesis.cpp */,
+				91DDDDEB1BE4B65900D7D932 /* SineWrapper.h */,
+				91DDDDEC1BE4B65900D7D932 /* SineWrapper.mm */,
 				91DDDDD21BE4B40B00D7D932 /* AppDelegate.h */,
-				91DDDDD31BE4B40B00D7D932 /* AppDelegate.m */,
+				91DDDDD31BE4B40B00D7D932 /* AppDelegate.mm */,
 				91DDDDD51BE4B40B00D7D932 /* ViewController.h */,
-				91DDDDD61BE4B40B00D7D932 /* ViewController.m */,
+				91DDDDD61BE4B40B00D7D932 /* ViewController.mm */,
 				91DDDDD81BE4B40B00D7D932 /* Main.storyboard */,
 				91DDDDDB1BE4B40B00D7D932 /* Assets.xcassets */,
 				91DDDDDD1BE4B40B00D7D932 /* LaunchScreen.storyboard */,
@@ -110,6 +159,7 @@
 				TargetAttributes = {
 					91DDDDCB1BE4B40B00D7D932 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = PYF7E49S7D;
 					};
 				};
 			};
@@ -149,9 +199,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91DDDDD71BE4B40B00D7D932 /* ViewController.m in Sources */,
-				91DDDDD41BE4B40B00D7D932 /* AppDelegate.m in Sources */,
+				91DDDDFB1BE4BA2600D7D932 /* Novocaine.m in Sources */,
+				914D9AF41BE52A5900E19AC1 /* AdderObject.cpp in Sources */,
+				91DDDDD71BE4B40B00D7D932 /* ViewController.mm in Sources */,
+				914D9AF71BE52E8900E19AC1 /* MultiplierObject.cpp in Sources */,
+				91DDDDD41BE4B40B00D7D932 /* AppDelegate.mm in Sources */,
+				91DDDDFC1BE4BA2600D7D932 /* RingBuffer.mm in Sources */,
 				91DDDDD11BE4B40B00D7D932 /* main.m in Sources */,
+				91DDDDF91BE4BA2600D7D932 /* AudioFileReader.mm in Sources */,
+				91DDDDEE1BE4B65900D7D932 /* SineWrapper.mm in Sources */,
+				914D9AFA1BE532A100E19AC1 /* FMSynthesis.cpp in Sources */,
+				91DDDDED1BE4B65900D7D932 /* SineWaveOsc.cpp in Sources */,
+				91DDDDFA1BE4BA2600D7D932 /* AudioFileWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,10 +320,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SimpleOsc/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Learn.SimpleOsc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -272,10 +336,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SimpleOsc/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Learn.SimpleOsc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -298,6 +367,7 @@
 				91DDDDE51BE4B40B00D7D932 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
