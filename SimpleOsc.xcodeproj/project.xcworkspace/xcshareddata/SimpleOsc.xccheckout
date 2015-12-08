@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>15B400B0-61A1-43BB-B536-1414B7E135DB</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SimpleOsc</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>3429F63B25729F6DC3CEE444386542367591E83A</key>
+		<string>https://github.com/mosesjlee/SimpleFMSynth.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SimpleOsc.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>3429F63B25729F6DC3CEE444386542367591E83A</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/mosesjlee/SimpleFMSynth.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>3429F63B25729F6DC3CEE444386542367591E83A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3429F63B25729F6DC3CEE444386542367591E83A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SimpleFMSynth</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -68,7 +68,6 @@ float FMSynthesis::tick()
 }
 
 
-
 void FMSynthesis::fillAllBuffers()
 {
     for(int i = 0; i < MAX_SAMPLES; i++){
