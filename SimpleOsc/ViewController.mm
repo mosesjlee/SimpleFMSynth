@@ -60,6 +60,10 @@
          }];
 }
 
+- (void)viewDidDisappear:(BOOL)animated{
+    
+}
+
 
 - (IBAction)changeFreq:(id)sender {
     _fmSynth->setOscFrequency(_freqSlider.value);

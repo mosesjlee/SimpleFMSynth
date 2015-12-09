@@ -22,7 +22,6 @@ AdderObject::AdderObject(float * leftInput, float * rightInput)
 
 AdderObject::~AdderObject()
 {
-    
 }
 
 void AdderObject::tick(float *fillBuffer, int numSamples)
