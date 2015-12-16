@@ -14,7 +14,9 @@
 @property (strong, nonatomic) IBOutlet UIButton *playButton;
 @property (strong, nonatomic) IBOutlet UISlider *modulationSlider;
 @property (strong, nonatomic) IBOutlet UISlider *deltaFreqSlider;
+@property (weak, nonatomic) IBOutlet UISwitch *guitarOrSynthSwitch;
 @property bool play;
+@property bool guitar;
 
 @property (nonatomic, assign) RingBuffer * ringBuffer;
 
@@ -24,10 +26,14 @@
 
 - (void)viewDidLoad {
     _play = NO;
+    _guitar = NO;
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     _sineWave = [[SineWrapper alloc] init];
     _fmSynth = new FMSynthesis();
+    NSString * path = [[NSBundle mainBundle] pathForResource:  @"guitar1" ofType: @"wav"];
+    _guitarSound = new ReadSamples([path cStringUsingEncoding:1]);
+    _guitarSound->fillSamples();
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,9 +60,14 @@
 //                    data[i*numChannels + iChannel] = val;
 //                }
 //            }
-//             //Need to figure out for stereo
+//           //Need to figure out for stereo
              //NSLog(@"numframes: %d", numFrames);
-             _fmSynth->tick(data, numFrames, numChannels);
+             if (_guitar) {
+                 
+                 _guitarSound->tick(data, numFrames, numChannels);
+             } else {
+                 _fmSynth->tick(data, numFrames, numChannels);
+             }
          }];
 }
 
@@ -84,6 +95,10 @@
     _play = !_play;
     _play ? [_audioManager pause] : [_audioManager play];
     NSLog(@"Play button value of play: %@", _play ? @"YES" : @"NO" );
+}
+
+- (IBAction)guitarOrSynth:(id)sender {
+    _guitar = [_guitarOrSynthSwitch isOn];
 }
 
 @end

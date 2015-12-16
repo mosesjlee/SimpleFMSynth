@@ -10,6 +10,8 @@
 		914D9AF41BE52A5900E19AC1 /* AdderObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 914D9AF21BE52A5900E19AC1 /* AdderObject.cpp */; };
 		914D9AF71BE52E8900E19AC1 /* MultiplierObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 914D9AF51BE52E8900E19AC1 /* MultiplierObject.cpp */; };
 		914D9AFA1BE532A100E19AC1 /* FMSynthesis.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 914D9AF81BE532A100E19AC1 /* FMSynthesis.cpp */; };
+		9187082B1C21404400E2E5AE /* ReadSamples.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 918708291C21404400E2E5AE /* ReadSamples.cpp */; };
+		9187082D1C214AA500E2E5AE /* guitar1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9187082C1C214AA500E2E5AE /* guitar1.wav */; };
 		91DDDDD11BE4B40B00D7D932 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DDDDD01BE4B40B00D7D932 /* main.m */; };
 		91DDDDD41BE4B40B00D7D932 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 91DDDDD31BE4B40B00D7D932 /* AppDelegate.mm */; };
 		91DDDDD71BE4B40B00D7D932 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 91DDDDD61BE4B40B00D7D932 /* ViewController.mm */; };
@@ -32,6 +34,9 @@
 		914D9AF61BE52E8900E19AC1 /* MultiplierObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MultiplierObject.hpp; sourceTree = "<group>"; };
 		914D9AF81BE532A100E19AC1 /* FMSynthesis.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FMSynthesis.cpp; sourceTree = "<group>"; };
 		914D9AF91BE532A100E19AC1 /* FMSynthesis.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FMSynthesis.hpp; sourceTree = "<group>"; };
+		918708291C21404400E2E5AE /* ReadSamples.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ReadSamples.cpp; sourceTree = "<group>"; };
+		9187082A1C21404400E2E5AE /* ReadSamples.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ReadSamples.hpp; sourceTree = "<group>"; };
+		9187082C1C214AA500E2E5AE /* guitar1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = guitar1.wav; path = ../../readWaveHeader/guitar1.wav; sourceTree = "<group>"; };
 		91DDDDCC1BE4B40B00D7D932 /* SimpleOsc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleOsc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91DDDDD01BE4B40B00D7D932 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		91DDDDD21BE4B40B00D7D932 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -87,6 +92,7 @@
 		91DDDDCE1BE4B40B00D7D932 /* SimpleOsc */ = {
 			isa = PBXGroup;
 			children = (
+				9187082C1C214AA500E2E5AE /* guitar1.wav */,
 				91DDDDF11BE4BA2600D7D932 /* AudioFileReader.h */,
 				91DDDDF21BE4BA2600D7D932 /* AudioFileReader.mm */,
 				91DDDDF31BE4BA2600D7D932 /* AudioFileWriter.h */,
@@ -105,6 +111,8 @@
 				91DDDDE91BE4B65900D7D932 /* SineWaveOsc.cpp */,
 				914D9AF91BE532A100E19AC1 /* FMSynthesis.hpp */,
 				914D9AF81BE532A100E19AC1 /* FMSynthesis.cpp */,
+				9187082A1C21404400E2E5AE /* ReadSamples.hpp */,
+				918708291C21404400E2E5AE /* ReadSamples.cpp */,
 				91DDDDEB1BE4B65900D7D932 /* SineWrapper.h */,
 				91DDDDEC1BE4B65900D7D932 /* SineWrapper.mm */,
 				91DDDDD21BE4B40B00D7D932 /* AppDelegate.h */,
@@ -186,6 +194,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9187082D1C214AA500E2E5AE /* guitar1.wav in Resources */,
 				91DDDDDF1BE4B40B00D7D932 /* LaunchScreen.storyboard in Resources */,
 				91DDDDDC1BE4B40B00D7D932 /* Assets.xcassets in Resources */,
 				91DDDDDA1BE4B40B00D7D932 /* Main.storyboard in Resources */,
@@ -206,6 +215,7 @@
 				91DDDDD41BE4B40B00D7D932 /* AppDelegate.mm in Sources */,
 				91DDDDFC1BE4BA2600D7D932 /* RingBuffer.mm in Sources */,
 				91DDDDD11BE4B40B00D7D932 /* main.m in Sources */,
+				9187082B1C21404400E2E5AE /* ReadSamples.cpp in Sources */,
 				91DDDDF91BE4BA2600D7D932 /* AudioFileReader.mm in Sources */,
 				91DDDDEE1BE4B65900D7D932 /* SineWrapper.mm in Sources */,
 				914D9AFA1BE532A100E19AC1 /* FMSynthesis.cpp in Sources */,

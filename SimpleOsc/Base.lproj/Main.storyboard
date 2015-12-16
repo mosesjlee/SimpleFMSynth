@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1077" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -89,6 +89,24 @@
                                     <rect key="frame" x="185" y="192" width="81" height="21"/>
                                 </variation>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hiJ-79-Nvm">
+                                <rect key="frame" x="-25" y="-15" width="51" height="31"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="68" y="408" width="51" height="31"/>
+                                </variation>
+                                <connections>
+                                    <action selector="guitarOrSynth:" destination="BYZ-38-t0r" eventType="valueChanged" id="ZLZ-xI-w0v"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guitar Or Synth" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sg-bH-g6t">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="21" y="379" width="142" height="21"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -99,6 +117,8 @@
                                 <exclude reference="tRy-eZ-Dzn"/>
                                 <exclude reference="dQi-p6-oXr"/>
                                 <exclude reference="ggD-fd-LOe"/>
+                                <exclude reference="hiJ-79-Nvm"/>
+                                <exclude reference="8sg-bH-g6t"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -109,6 +129,8 @@
                                 <include reference="tRy-eZ-Dzn"/>
                                 <include reference="dQi-p6-oXr"/>
                                 <include reference="ggD-fd-LOe"/>
+                                <include reference="hiJ-79-Nvm"/>
+                                <include reference="8sg-bH-g6t"/>
                             </mask>
                         </variation>
                     </view>
@@ -116,6 +138,7 @@
                         <outlet property="deltaFreqSlider" destination="hLq-jz-P5G" id="WPj-1b-rRe"/>
                         <outlet property="freqLabel" destination="ggD-fd-LOe" id="JvH-s1-Qh4"/>
                         <outlet property="freqSlider" destination="tRy-eZ-Dzn" id="9rY-P2-BuM"/>
+                        <outlet property="guitarOrSynthSwitch" destination="hiJ-79-Nvm" id="KiQ-Tx-dv9"/>
                         <outlet property="modulationSlider" destination="Ia7-qj-pkb" id="82f-9B-cAG"/>
                         <outlet property="playButton" destination="cvq-Vd-eGG" id="0b1-bl-ARu"/>
                     </connections>

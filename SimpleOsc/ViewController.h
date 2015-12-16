@@ -13,6 +13,7 @@
 #import "AudioFileWriter.h"
 #import "SineWrapper.h"
 #import "FMSynthesis.hpp"
+#import "ReadSamples.hpp"
 
 @interface ViewController : UIViewController
 
@@ -21,6 +22,6 @@
 @property (nonatomic, strong) AudioFileWriter *fileWriter;
 @property (nonatomic, strong) SineWrapper * sineWave;
 @property (nonatomic) FMSynthesis * fmSynth;
-
+@property (nonatomic) ReadSamples * guitarSound;
 @end
 
