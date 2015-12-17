@@ -44,14 +44,18 @@ void ReadSamples::fillSamples(){
         cout << "Size of float: " << sizeof(float) << endl;
         fread((void *) data.get(), sizeof(char), wav.sizeOfData, myFile);
         
-        short s = 0x00000000;
+        short s = 0x0000, fs, ss;
         for(int i = 0; i < frames; i++){
             
-            /*s = data[i*2+1];
-            s <<= 8;
-            s = s | data[i*2];*/
-            memcpy(&s, &data[i*2], 2);
+            
+            ss = ((0x0000 | data[i*2+1]) & 0xff) << 8;
+            fs = (0x0000 | data[i*2]) & 0xff;
+            s = fs | ss;
+            
+            //First attempt was just use memcpy
+            //memcpy(&s, &data[i*2], 2);
             samples[i] = (float) s/32768.0000;
+            
             //cout << samples[i] << endl;
         }
         
