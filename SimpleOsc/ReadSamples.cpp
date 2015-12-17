@@ -39,14 +39,15 @@ ReadSamples::ReadSamples(string pathname){
 void ReadSamples::fillSamples(){
     samples.reset(new float[frames]);
     data.reset(new char[wav.sizeOfData]);
+    
     if(!fseek(myFile, 44, SEEK_SET)){
         cout << "Size of float: " << sizeof(float) << endl;
         fread((void *) data.get(), sizeof(char), wav.sizeOfData, myFile);
         
-        short s = 0x0000;
+        short s = 0x00000000;
         for(int i = 0; i < frames; i++){
             
-            /*s = 0x0000 | data[i*2+1];
+            /*s = data[i*2+1];
             s <<= 8;
             s = s | data[i*2];*/
             memcpy(&s, &data[i*2], 2);
