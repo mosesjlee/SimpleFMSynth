@@ -10,6 +10,7 @@
 		914D9AF41BE52A5900E19AC1 /* AdderObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 914D9AF21BE52A5900E19AC1 /* AdderObject.cpp */; };
 		914D9AF71BE52E8900E19AC1 /* MultiplierObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 914D9AF51BE52E8900E19AC1 /* MultiplierObject.cpp */; };
 		914D9AFA1BE532A100E19AC1 /* FMSynthesis.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 914D9AF81BE532A100E19AC1 /* FMSynthesis.cpp */; };
+		917CD40F1C2D1CC1008EFAA8 /* stereo_guitar.wav in Resources */ = {isa = PBXBuildFile; fileRef = 917CD40E1C2D1CC1008EFAA8 /* stereo_guitar.wav */; };
 		9187082B1C21404400E2E5AE /* ReadSamples.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 918708291C21404400E2E5AE /* ReadSamples.cpp */; };
 		9187082D1C214AA500E2E5AE /* guitar1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9187082C1C214AA500E2E5AE /* guitar1.wav */; };
 		91DDDDD11BE4B40B00D7D932 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DDDDD01BE4B40B00D7D932 /* main.m */; };
@@ -34,6 +35,7 @@
 		914D9AF61BE52E8900E19AC1 /* MultiplierObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MultiplierObject.hpp; sourceTree = "<group>"; };
 		914D9AF81BE532A100E19AC1 /* FMSynthesis.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FMSynthesis.cpp; sourceTree = "<group>"; };
 		914D9AF91BE532A100E19AC1 /* FMSynthesis.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FMSynthesis.hpp; sourceTree = "<group>"; };
+		917CD40E1C2D1CC1008EFAA8 /* stereo_guitar.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = stereo_guitar.wav; sourceTree = "<group>"; };
 		918708291C21404400E2E5AE /* ReadSamples.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ReadSamples.cpp; sourceTree = "<group>"; };
 		9187082A1C21404400E2E5AE /* ReadSamples.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ReadSamples.hpp; sourceTree = "<group>"; };
 		9187082C1C214AA500E2E5AE /* guitar1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = guitar1.wav; path = ../../readWaveHeader/guitar1.wav; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 		91DDDDCE1BE4B40B00D7D932 /* SimpleOsc */ = {
 			isa = PBXGroup;
 			children = (
+				917CD40E1C2D1CC1008EFAA8 /* stereo_guitar.wav */,
 				9187082C1C214AA500E2E5AE /* guitar1.wav */,
 				91DDDDF11BE4BA2600D7D932 /* AudioFileReader.h */,
 				91DDDDF21BE4BA2600D7D932 /* AudioFileReader.mm */,
@@ -196,6 +199,7 @@
 			files = (
 				9187082D1C214AA500E2E5AE /* guitar1.wav in Resources */,
 				91DDDDDF1BE4B40B00D7D932 /* LaunchScreen.storyboard in Resources */,
+				917CD40F1C2D1CC1008EFAA8 /* stereo_guitar.wav in Resources */,
 				91DDDDDC1BE4B40B00D7D932 /* Assets.xcassets in Resources */,
 				91DDDDDA1BE4B40B00D7D932 /* Main.storyboard in Resources */,
 			);
@@ -330,7 +334,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SimpleOsc/Info.plist;
@@ -346,7 +351,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SimpleOsc/Info.plist;

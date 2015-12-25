@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutlet UISlider *modulationSlider;
 @property (strong, nonatomic) IBOutlet UISlider *deltaFreqSlider;
 @property (weak, nonatomic) IBOutlet UISwitch *guitarOrSynthSwitch;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *soundMode;
 @property bool play;
 @property bool guitar;
 
@@ -31,9 +32,14 @@
     // Do any additional setup after loading the view, typically from a nib.
     _sineWave = [[SineWrapper alloc] init];
     _fmSynth = new FMSynthesis();
+    
     NSString * path = [[NSBundle mainBundle] pathForResource:  @"guitar1" ofType: @"wav"];
     _guitarSound = new ReadSamples([path cStringUsingEncoding:1]);
     _guitarSound->fillSamples();
+    
+    NSString * path2 = [[NSBundle mainBundle] pathForResource:  @"stereo_guitar" ofType: @"wav"];
+    _stereoGuitar = new ReadSamples([path2 cStringUsingEncoding:1]);
+    _stereoGuitar->fillSamples();
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,11 +68,23 @@
 //            }
 //           //Need to figure out for stereo
              //NSLog(@"numframes: %d", numFrames);
-             if (_guitar) {
-                 
-                 _guitarSound->tick(data, numFrames, numChannels);
-             } else {
-                 _fmSynth->tick(data, numFrames, numChannels);
+//             if (_guitar) {
+//                 
+//                 _guitarSound->tick(data, numFrames, numChannels);
+//             } else {
+//                 _fmSynth->tick(data, numFrames, numChannels);
+//             }
+             switch (_source) {
+                 case fmSynth:
+                     _fmSynth->tick(data, numFrames, numChannels);
+                     break;
+                 case monoGuitar:
+                     _guitarSound->tick(data, numFrames, numChannels);
+                     break;
+                 case stereoGuitarSource:
+                     _stereoGuitar->tick(data, numFrames, numChannels);
+                 default:
+                     break;
              }
          }];
 }
@@ -97,8 +115,25 @@
     NSLog(@"Play button value of play: %@", _play ? @"YES" : @"NO" );
 }
 
-- (IBAction)guitarOrSynth:(id)sender {
-    _guitar = [_guitarOrSynthSwitch isOn];
+- (IBAction)switchDifferentModes:(id)sender {
+    //[soundMode ];
+    NSInteger mode = [_soundMode selectedSegmentIndex];
+    NSLog(@"Mode value: %ld", (long)mode);
+    switch (mode) {
+        case 0:
+            _source = fmSynth;
+            break;
+        case 1:
+            _source = monoGuitar;
+            break;
+        case 2:
+            _source = stereoGuitarSource;
+            break;
+        default:
+            _source = fmSynth;
+            break;
+    }
 }
+
 
 @end

@@ -30,6 +30,52 @@ ReadSamples::ReadSamples(string pathname){
         memcpy(&wav.data, &header[36], 4);
         memcpy(&wav.sizeOfData, &header[40], 4);
         
+        if(memcmp(wav.data, minf.data(), 4) == 0){
+            cout << "String are same" << endl;
+            fseek(myFile, DEFAULT_DATA_LOC + minfOffSet, SEEK_SET);
+            fread((void *) wav.data, sizeof(char), 4, myFile);
+            fread((void *) &wav.sizeOfData, sizeof(int), 1, myFile);
+            elm1OffSet = wav.sizeOfData;
+        }
+        
+        if(memcmp(wav.data, elm1.data(), 4) == 0){
+            hasAdditionalHeaderInf = true;
+            cout << "Detected elm1" << endl;
+            fseek(myFile, DESCRIPTOR_OFFSET + DEFAULT_DATA_LOC + minfOffSet + elm1OffSet, SEEK_SET);
+            fread((void *) wav.data, sizeof(char), 4, myFile);
+            fread((void *) &wav.sizeOfData, sizeof(int), 1, myFile);
+            regnOffSet = wav.sizeOfData;
+        }
+        
+        if(memcmp(wav.data, regn.data(), 4) == 0) {
+            cout << "Detected region" << endl;
+            fseek(myFile, (2 * DESCRIPTOR_OFFSET) + DEFAULT_DATA_LOC + minfOffSet + elm1OffSet + regnOffSet, SEEK_SET);
+            fread((void *) wav.data, sizeof(char), 4, myFile);
+            fread((void *) &wav.sizeOfData, sizeof(int), 1, myFile);
+            umidOffSet = wav.sizeOfData;
+            
+        }
+        if(memcmp(wav.data, umid.data(), 4) == 0) {
+            cout << "Detected region" << endl;
+            fseek(myFile, (3 * DESCRIPTOR_OFFSET) + DEFAULT_DATA_LOC + minfOffSet + elm1OffSet + regnOffSet + umidOffSet, SEEK_SET);
+            fread((void *) wav.data, sizeof(char), 4, myFile);
+            fread((void *) &wav.sizeOfData, sizeof(int), 1, myFile);
+            bextOffSet = wav.sizeOfData;
+        }
+        if(memcmp(wav.data, bext.data(), 4) == 0) {
+            cout << "Detected region" << endl;
+            fseek(myFile,
+                  (4 * DESCRIPTOR_OFFSET) + DEFAULT_DATA_LOC + minfOffSet + elm1OffSet + regnOffSet + umidOffSet + bextOffSet, SEEK_SET);
+            fread((void *) wav.data, sizeof(char), 4, myFile);
+            fread((void *) &wav.sizeOfData, sizeof(int), 1, myFile);
+            padOffSet = wav.sizeOfData;
+        }
+
+        if(hasAdditionalHeaderInf) {
+            finalOffset =	(5 * DESCRIPTOR_OFFSET) + DEFAULT_DATA_LOC +
+            minfOffSet + elm1OffSet + regnOffSet + umidOffSet + bextOffSet + padOffSet;
+        }
+        
         frames = wav.sizeOfData * BITS/ wav.bitsPerSample;
     } else {
         cout << "Could not open" << endl;
@@ -40,13 +86,15 @@ void ReadSamples::fillSamples(){
     samples.reset(new float[frames]);
     data.reset(new char[wav.sizeOfData]);
     
-    if(!fseek(myFile, 44, SEEK_SET)){
+    unsigned int seek_size = hasAdditionalHeaderInf ? finalOffset : DEFAULT_DATA_LOC;
+
+    
+    if(!fseek(myFile, seek_size, SEEK_SET)){
         cout << "Size of float: " << sizeof(float) << endl;
         fread((void *) data.get(), sizeof(char), wav.sizeOfData, myFile);
         
         short s = 0x0000, fs, ss;
         for(int i = 0; i < frames; i++){
-            
             
             ss = ((0x0000 | data[i*2+1]) & 0xff) << 8;
             fs = (0x0000 | data[i*2]) & 0xff;
@@ -58,18 +106,28 @@ void ReadSamples::fillSamples(){
             
             //cout << samples[i] << endl;
         }
-        
     }
-    
 }
 
 void ReadSamples::tick(float * buffer, int numFrames, int channels){
-    for (int i = 0; i < numFrames; i++) {
-        float val = samples[outputIndex];
-        for(int j = 0; j < channels; j++){
-            buffer[i * channels + j] = val;
+    if (wav.numChannels == 1) {
+        for (int i = 0; i < numFrames; i++) {
+            float val = samples[outputIndex];
+            for(int j = 0; j < 1; j++){
+                buffer[i * channels + j] = val;
+            }
+            outputIndex = (outputIndex + 1) % frames;
         }
-        outputIndex = (outputIndex + 1) % frames;
+    } else if (wav.numChannels == 2){
+        
+        for (int i = 0; i < numFrames; i++) {
+            for(int j = 0; j < channels; j++){
+                float val = samples[outputIndex];
+                buffer[i * channels + j] = val;
+                outputIndex = (outputIndex + 1) % frames;
+                //cout << "output index:" << outputIndex << endl;
+            }
+        }
     }
 }
 

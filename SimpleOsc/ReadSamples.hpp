@@ -13,9 +13,12 @@
 #include <memory>
 #include <iostream>
 #include <fstream>
+#include <string>
 #include "AudioSpec.h"
 
 #define BITS 8
+#define DEFAULT_DATA_LOC 44
+#define DESCRIPTOR_OFFSET 8
 
 using namespace std;
 
@@ -44,6 +47,22 @@ private:
     struct wavHeader wav;
     unsigned int frames;
     int outputIndex;
+    
+    //For Pro Tools generated wav
+    string minf = "minf" ;
+    int minfOffSet = 0;
+    string elm1 = "elm1";
+    int elm1OffSet = 0;
+    string regn = "regn";
+    int regnOffSet = 0;
+    string umid = "umid";
+    int umidOffSet = 0;
+    string bext = "bext";
+    int bextOffSet = 0;
+    string pad = "PAD";
+    int padOffSet = 0;
+    int finalOffset = 0;
+    bool hasAdditionalHeaderInf = false;
     
 public:
     ReadSamples(string pathname);

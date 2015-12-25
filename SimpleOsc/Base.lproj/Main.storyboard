@@ -19,6 +19,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvq-Vd-eGG">
                                 <rect key="frame" x="263" y="398" width="75" height="30"/>
                                 <state key="normal" title="Play"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="135" y="308" width="75" height="30"/>
+                                </variation>
                                 <connections>
                                     <action selector="playSomeNoise:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1u7-ih-Qkj"/>
                                 </connections>
@@ -89,22 +92,27 @@
                                     <rect key="frame" x="185" y="192" width="81" height="21"/>
                                 </variation>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hiJ-79-Nvm">
-                                <rect key="frame" x="-25" y="-15" width="51" height="31"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="0XT-9W-6qG">
+                                <rect key="frame" x="-60" y="-14" width="121" height="29"/>
+                                <segments>
+                                    <segment title="FM Synth"/>
+                                    <segment title="Mono"/>
+                                    <segment title="Stereo"/>
+                                </segments>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="68" y="408" width="51" height="31"/>
+                                    <rect key="frame" x="60" y="492" width="281" height="29"/>
                                 </variation>
                                 <connections>
-                                    <action selector="guitarOrSynth:" destination="BYZ-38-t0r" eventType="valueChanged" id="ZLZ-xI-w0v"/>
+                                    <action selector="switchDifferentModes:" destination="BYZ-38-t0r" eventType="valueChanged" id="EZ6-Zt-Ywo"/>
                                 </connections>
-                            </switch>
+                            </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guitar Or Synth" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sg-bH-g6t">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="21" y="379" width="142" height="21"/>
+                                    <rect key="frame" x="129" y="451" width="142" height="21"/>
                                 </variation>
                             </label>
                         </subviews>
@@ -117,7 +125,7 @@
                                 <exclude reference="tRy-eZ-Dzn"/>
                                 <exclude reference="dQi-p6-oXr"/>
                                 <exclude reference="ggD-fd-LOe"/>
-                                <exclude reference="hiJ-79-Nvm"/>
+                                <exclude reference="0XT-9W-6qG"/>
                                 <exclude reference="8sg-bH-g6t"/>
                             </mask>
                         </variation>
@@ -129,7 +137,7 @@
                                 <include reference="tRy-eZ-Dzn"/>
                                 <include reference="dQi-p6-oXr"/>
                                 <include reference="ggD-fd-LOe"/>
-                                <include reference="hiJ-79-Nvm"/>
+                                <include reference="0XT-9W-6qG"/>
                                 <include reference="8sg-bH-g6t"/>
                             </mask>
                         </variation>
@@ -138,9 +146,9 @@
                         <outlet property="deltaFreqSlider" destination="hLq-jz-P5G" id="WPj-1b-rRe"/>
                         <outlet property="freqLabel" destination="ggD-fd-LOe" id="JvH-s1-Qh4"/>
                         <outlet property="freqSlider" destination="tRy-eZ-Dzn" id="9rY-P2-BuM"/>
-                        <outlet property="guitarOrSynthSwitch" destination="hiJ-79-Nvm" id="KiQ-Tx-dv9"/>
                         <outlet property="modulationSlider" destination="Ia7-qj-pkb" id="82f-9B-cAG"/>
                         <outlet property="playButton" destination="cvq-Vd-eGG" id="0b1-bl-ARu"/>
+                        <outlet property="soundMode" destination="0XT-9W-6qG" id="zEL-EX-0W9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
