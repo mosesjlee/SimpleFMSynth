@@ -14,6 +14,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *playButton;
 @property (strong, nonatomic) IBOutlet UISlider *modulationSlider;
 @property (strong, nonatomic) IBOutlet UISlider *deltaFreqSlider;
+@property (strong, nonatomic) IBOutlet UISlider *freqCutOffSlider;
 @property (weak, nonatomic) IBOutlet UISwitch *guitarOrSynthSwitch;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *soundMode;
 @property bool play;
@@ -33,9 +34,13 @@
     _sineWave = [[SineWrapper alloc] init];
     _fmSynth = new FMSynthesis();
     
+    _lowPassFilter = new SimpleEq();
+    
     NSString * path = [[NSBundle mainBundle] pathForResource:  @"guitar1" ofType: @"wav"];
     _guitarSound = new ReadSamples([path cStringUsingEncoding:1]);
     _guitarSound->fillSamples();
+    
+    
     
     NSString * path2 = [[NSBundle mainBundle] pathForResource:  @"stereo_guitar" ofType: @"wav"];
     _stereoGuitar = new ReadSamples([path2 cStringUsingEncoding:1]);
@@ -54,10 +59,10 @@
     self.audioManager = [Novocaine audioManager];
     self.ringBuffer = new RingBuffer(4096,1);
     
-        [self.audioManager setOutputBlock:^(float *data, UInt32 numFrames, UInt32 numChannels)
-         {
+    [self.audioManager setOutputBlock:^(float *data, UInt32 numFrames, UInt32 numChannels)
+     {
 //             _fmSynth->fillAllBuffers();
-    		
+        
 //            for (int i=0; i < numFrames; ++i)
 //            {
 //                float val = _fmSynth->tick();
@@ -67,26 +72,28 @@
 //                }
 //            }
 //           //Need to figure out for stereo
-             //NSLog(@"numframes: %d", numFrames);
+         //NSLog(@"numframes: %d", numFrames);
 //             if (_guitar) {
 //                 
 //                 _guitarSound->tick(data, numFrames, numChannels);
 //             } else {
 //                 _fmSynth->tick(data, numFrames, numChannels);
 //             }
-             switch (_source) {
-                 case fmSynth:
-                     _fmSynth->tick(data, numFrames, numChannels);
-                     break;
-                 case monoGuitar:
-                     _guitarSound->tick(data, numFrames, numChannels);
-                     break;
-                 case stereoGuitarSource:
-                     _stereoGuitar->tick(data, numFrames, numChannels);
-                 default:
-                     break;
-             }
-         }];
+         switch (_source) {
+             case fmSynth:
+                 _fmSynth->tick(data, numFrames, numChannels);
+                 break;
+             case monoGuitar:
+                 _guitarSound->tick(_lowPassFilter->getInputBuffer(), MAX_SAMPLES, 1);
+                 _lowPassFilter->processNextSamples();
+                 _lowPassFilter->fillOutputBuffer(data, numFrames, numChannels);
+                 break;
+             case stereoGuitarSource:
+                 _stereoGuitar->tick(data, numFrames, numChannels);
+             default:
+                 break;
+         }
+     }];
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
@@ -133,6 +140,11 @@
             _source = fmSynth;
             break;
     }
+}
+
+- (IBAction)updateFreqCutOff:(id)sender {
+    NSLog(@"Freq Cutoff: %f", _freqCutOffSlider.value);
+    _lowPassFilter->changeCutOffFreq(_freqCutOffSlider.value);
 }
 
 

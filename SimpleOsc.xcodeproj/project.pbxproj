@@ -10,6 +10,7 @@
 		914D9AF41BE52A5900E19AC1 /* AdderObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 914D9AF21BE52A5900E19AC1 /* AdderObject.cpp */; };
 		914D9AF71BE52E8900E19AC1 /* MultiplierObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 914D9AF51BE52E8900E19AC1 /* MultiplierObject.cpp */; };
 		914D9AFA1BE532A100E19AC1 /* FMSynthesis.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 914D9AF81BE532A100E19AC1 /* FMSynthesis.cpp */; };
+		9156E5F51C4774D400F76A32 /* SimpleEq.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9156E5F31C4774D400F76A32 /* SimpleEq.cpp */; };
 		917CD40F1C2D1CC1008EFAA8 /* stereo_guitar.wav in Resources */ = {isa = PBXBuildFile; fileRef = 917CD40E1C2D1CC1008EFAA8 /* stereo_guitar.wav */; };
 		9187082B1C21404400E2E5AE /* ReadSamples.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 918708291C21404400E2E5AE /* ReadSamples.cpp */; };
 		9187082D1C214AA500E2E5AE /* guitar1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9187082C1C214AA500E2E5AE /* guitar1.wav */; };
@@ -35,6 +36,8 @@
 		914D9AF61BE52E8900E19AC1 /* MultiplierObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MultiplierObject.hpp; sourceTree = "<group>"; };
 		914D9AF81BE532A100E19AC1 /* FMSynthesis.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FMSynthesis.cpp; sourceTree = "<group>"; };
 		914D9AF91BE532A100E19AC1 /* FMSynthesis.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FMSynthesis.hpp; sourceTree = "<group>"; };
+		9156E5F31C4774D400F76A32 /* SimpleEq.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SimpleEq.cpp; sourceTree = "<group>"; };
+		9156E5F41C4774D400F76A32 /* SimpleEq.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SimpleEq.hpp; sourceTree = "<group>"; };
 		917CD40E1C2D1CC1008EFAA8 /* stereo_guitar.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = stereo_guitar.wav; sourceTree = "<group>"; };
 		918708291C21404400E2E5AE /* ReadSamples.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ReadSamples.cpp; sourceTree = "<group>"; };
 		9187082A1C21404400E2E5AE /* ReadSamples.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ReadSamples.hpp; sourceTree = "<group>"; };
@@ -97,6 +100,8 @@
 				917CD40E1C2D1CC1008EFAA8 /* stereo_guitar.wav */,
 				9187082C1C214AA500E2E5AE /* guitar1.wav */,
 				91DDDDF11BE4BA2600D7D932 /* AudioFileReader.h */,
+				9156E5F41C4774D400F76A32 /* SimpleEq.hpp */,
+				9156E5F31C4774D400F76A32 /* SimpleEq.cpp */,
 				91DDDDF21BE4BA2600D7D932 /* AudioFileReader.mm */,
 				91DDDDF31BE4BA2600D7D932 /* AudioFileWriter.h */,
 				91DDDDF41BE4BA2600D7D932 /* AudioFileWriter.m */,
@@ -221,6 +226,7 @@
 				91DDDDD11BE4B40B00D7D932 /* main.m in Sources */,
 				9187082B1C21404400E2E5AE /* ReadSamples.cpp in Sources */,
 				91DDDDF91BE4BA2600D7D932 /* AudioFileReader.mm in Sources */,
+				9156E5F51C4774D400F76A32 /* SimpleEq.cpp in Sources */,
 				91DDDDEE1BE4B65900D7D932 /* SineWrapper.mm in Sources */,
 				914D9AFA1BE532A100E19AC1 /* FMSynthesis.cpp in Sources */,
 				91DDDDED1BE4B65900D7D932 /* SineWaveOsc.cpp in Sources */,
@@ -338,9 +344,15 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = SimpleOsc/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"OTHER_CPLUSPLUSFLAGS[arch=*]" = (
+					"$(OTHER_CFLAGS)",
+					"-D",
+					"DEBUG=0",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Learn.SimpleOsc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

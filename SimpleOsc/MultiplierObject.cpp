@@ -6,8 +6,6 @@
 //  Copyright © 2015 Moses Lee. All rights reserved.
 //
 
-#define DEBUG 0
-
 #if DEBUG
 #include <iostream>
 #endif

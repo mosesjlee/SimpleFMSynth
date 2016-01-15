@@ -30,12 +30,16 @@ ReadSamples::ReadSamples(string pathname){
         memcpy(&wav.data, &header[36], 4);
         memcpy(&wav.sizeOfData, &header[40], 4);
         
+        //cout << "what is data: " << wav.data << endl;
+        //cout << "minfOffSet: " << minfOffSet << endl;
         if(memcmp(wav.data, minf.data(), 4) == 0){
-            cout << "String are same" << endl;
+            minfOffSet = wav.sizeOfData;
             fseek(myFile, DEFAULT_DATA_LOC + minfOffSet, SEEK_SET);
             fread((void *) wav.data, sizeof(char), 4, myFile);
             fread((void *) &wav.sizeOfData, sizeof(int), 1, myFile);
             elm1OffSet = wav.sizeOfData;
+            cout << "elm1OffSet: " << elm1OffSet << endl;
+            cout << "what is data: " << wav.data << endl;
         }
         
         if(memcmp(wav.data, elm1.data(), 4) == 0){
@@ -45,6 +49,7 @@ ReadSamples::ReadSamples(string pathname){
             fread((void *) wav.data, sizeof(char), 4, myFile);
             fread((void *) &wav.sizeOfData, sizeof(int), 1, myFile);
             regnOffSet = wav.sizeOfData;
+            cout << "regnOffSet: " << regnOffSet << endl;
         }
         
         if(memcmp(wav.data, regn.data(), 4) == 0) {
@@ -53,6 +58,7 @@ ReadSamples::ReadSamples(string pathname){
             fread((void *) wav.data, sizeof(char), 4, myFile);
             fread((void *) &wav.sizeOfData, sizeof(int), 1, myFile);
             umidOffSet = wav.sizeOfData;
+            cout << "umidOffSet: " << umidOffSet << endl;
             
         }
         if(memcmp(wav.data, umid.data(), 4) == 0) {
@@ -61,6 +67,7 @@ ReadSamples::ReadSamples(string pathname){
             fread((void *) wav.data, sizeof(char), 4, myFile);
             fread((void *) &wav.sizeOfData, sizeof(int), 1, myFile);
             bextOffSet = wav.sizeOfData;
+            cout << "bextOffSet: " << bextOffSet << endl;
         }
         if(memcmp(wav.data, bext.data(), 4) == 0) {
             cout << "Detected region" << endl;
@@ -69,6 +76,17 @@ ReadSamples::ReadSamples(string pathname){
             fread((void *) wav.data, sizeof(char), 4, myFile);
             fread((void *) &wav.sizeOfData, sizeof(int), 1, myFile);
             padOffSet = wav.sizeOfData;
+            cout << "padOffSet: " << padOffSet << endl;
+        }
+        
+        finalOffset = (5 * DESCRIPTOR_OFFSET) + DEFAULT_DATA_LOC +
+        minfOffSet + elm1OffSet + regnOffSet + umidOffSet + bextOffSet + padOffSet;
+        
+        if(memcmp(wav.data, pad.data(), 3) == 0) {
+            cout << "Detected region" << endl;
+            fseek(myFile, finalOffset, SEEK_SET);
+            fread((void *) wav.data, sizeof(char), 4, myFile);
+            fread((void *) &wav.sizeOfData, sizeof(int), 1, myFile);
         }
 
         if(hasAdditionalHeaderInf) {
@@ -77,6 +95,8 @@ ReadSamples::ReadSamples(string pathname){
         }
         
         frames = wav.sizeOfData * BITS/ wav.bitsPerSample;
+        //cout << "file name: " << pathname << " with sizeOfdata: " << wav.sizeOfData << " finaOffset: " << finalOffset << endl;
+        cout << "data: " << wav.data << endl;
     } else {
         cout << "Could not open" << endl;
     }
@@ -89,7 +109,7 @@ void ReadSamples::fillSamples(){
     unsigned int seek_size = hasAdditionalHeaderInf ? finalOffset : DEFAULT_DATA_LOC;
 
     
-    if(!fseek(myFile, seek_size, SEEK_SET)){
+    if(!fseek(myFile, seek_size + 8, SEEK_SET)){
         cout << "Size of float: " << sizeof(float) << endl;
         fread((void *) data.get(), sizeof(char), wav.sizeOfData, myFile);
         
@@ -113,6 +133,7 @@ void ReadSamples::tick(float * buffer, int numFrames, int channels){
     if (wav.numChannels == 1) {
         for (int i = 0; i < numFrames; i++) {
             float val = samples[outputIndex];
+            //just output it to the left one
             for(int j = 0; j < 1; j++){
                 buffer[i * channels + j] = val;
             }

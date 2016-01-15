@@ -20,7 +20,7 @@
                                 <rect key="frame" x="263" y="398" width="75" height="30"/>
                                 <state key="normal" title="Play"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="135" y="308" width="75" height="30"/>
+                                    <rect key="frame" x="155" y="211" width="75" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="playSomeNoise:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1u7-ih-Qkj"/>
@@ -68,7 +68,7 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="220" minValue="220" maxValue="1320" translatesAutoresizingMaskIntoConstraints="NO" id="tRy-eZ-Dzn">
                                 <rect key="frame" x="0.0" y="-15" width="118" height="31"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="18" y="227" width="118" height="31"/>
+                                    <rect key="frame" x="18" y="151" width="118" height="31"/>
                                 </variation>
                                 <connections>
                                     <action selector="changeFreq:" destination="BYZ-38-t0r" eventType="valueChanged" id="mBP-VI-74g"/>
@@ -80,7 +80,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="21" y="193" width="96" height="21"/>
+                                    <rect key="frame" x="29" y="122" width="96" height="21"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Freq Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggD-fd-LOe">
@@ -89,7 +89,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="185" y="192" width="81" height="21"/>
+                                    <rect key="frame" x="224" y="129" width="81" height="21"/>
                                 </variation>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="0XT-9W-6qG">
@@ -100,7 +100,7 @@
                                     <segment title="Stereo"/>
                                 </segments>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="60" y="492" width="281" height="29"/>
+                                    <rect key="frame" x="52" y="314" width="281" height="29"/>
                                 </variation>
                                 <connections>
                                     <action selector="switchDifferentModes:" destination="BYZ-38-t0r" eventType="valueChanged" id="EZ6-Zt-Ywo"/>
@@ -112,7 +112,25 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="129" y="451" width="142" height="21"/>
+                                    <rect key="frame" x="129" y="267" width="142" height="21"/>
+                                </variation>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="100" maxValue="10000" translatesAutoresizingMaskIntoConstraints="NO" id="yfk-ve-yaX">
+                                <rect key="frame" x="0.0" y="-15" width="118" height="31"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="50" y="407" width="118" height="31"/>
+                                </variation>
+                                <connections>
+                                    <action selector="updateFreqCutOff:" destination="BYZ-38-t0r" eventType="valueChanged" id="xto-41-TPt"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LPF Cut Off" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xeJ-m2-HEm">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="52" y="378" width="90" height="21"/>
                                 </variation>
                             </label>
                         </subviews>
@@ -127,6 +145,8 @@
                                 <exclude reference="ggD-fd-LOe"/>
                                 <exclude reference="0XT-9W-6qG"/>
                                 <exclude reference="8sg-bH-g6t"/>
+                                <exclude reference="yfk-ve-yaX"/>
+                                <exclude reference="xeJ-m2-HEm"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -139,11 +159,14 @@
                                 <include reference="ggD-fd-LOe"/>
                                 <include reference="0XT-9W-6qG"/>
                                 <include reference="8sg-bH-g6t"/>
+                                <include reference="yfk-ve-yaX"/>
+                                <include reference="xeJ-m2-HEm"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="deltaFreqSlider" destination="hLq-jz-P5G" id="WPj-1b-rRe"/>
+                        <outlet property="freqCutOffSlider" destination="yfk-ve-yaX" id="g9c-Za-z9M"/>
                         <outlet property="freqLabel" destination="ggD-fd-LOe" id="JvH-s1-Qh4"/>
                         <outlet property="freqSlider" destination="tRy-eZ-Dzn" id="9rY-P2-BuM"/>
                         <outlet property="modulationSlider" destination="Ia7-qj-pkb" id="82f-9B-cAG"/>

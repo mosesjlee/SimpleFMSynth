@@ -291,16 +291,29 @@ static Novocaine *audioManager = nil;
     // ---------------------------
     
 #if defined ( USING_IOS )
-    
+    // TODO: Take care of deprecated functions
     // TODO: Move this somewhere more dynamic - should update category as appropriate to current application behavior
-    UInt32 sessionCategory = kAudioSessionCategory_PlayAndRecord;
-    CheckError( AudioSessionSetProperty (kAudioSessionProperty_AudioCategory,
-                                         sizeof (sessionCategory),
-                                         &sessionCategory), "Couldn't set audio category");    
+    //UInt32 sessionCategory = kAudioSessionCategory_PlayAndRecord;
+    AVAudioSession * session = [AVAudioSession sharedInstance];
+    NSError * setCategoryError = Nil;
+    
+    //Below is deprecated
+//    CheckError( AudioSessionSetProperty (kAudioSessionProperty_AudioCategory,
+//                                         sizeof (sessionCategory),
+//                                         &sessionCategory), "Couldn't set audio category");
+    
+    if(![session setCategory:AVAudioSessionCategoryAudioProcessing error:&setCategoryError]){
+        
+    }
     
     
     // Add a property listener, to listen to changes to the session
+    //Below is deprecated
     CheckError( AudioSessionAddPropertyListener(kAudioSessionProperty_AudioRouteChange, sessionPropertyListener, (__bridge void*)self), "Couldn't add audio session property listener");
+    
+//    if( ![session setCategory:AVAudioSessionRouteChangeNotification error:&setCategoryError]){
+//        
+//    }
     
     // Set the buffer size, this will affect the number of samples that get rendered every time the audio callback is fired
     // A small number will get you lower latency audio, but will make your processor work harder
@@ -712,9 +725,12 @@ static Novocaine *audioManager = nil;
     
 #if defined ( USING_IOS )
     UInt32 size = sizeof(isInputAvailable);
+
 	CheckError( AudioSessionGetProperty(kAudioSessionProperty_AudioInputAvailable, 
                                         &size, 
                                         &isInputAvailable), "Couldn't check if input was available");
+    //AVAudioSession * session = [[AVAudioSession sharedInstance] availableInputs];
+
     
 #elif defined ( USING_OSX )
     isInputAvailable = 1;
